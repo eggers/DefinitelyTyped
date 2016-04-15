@@ -436,6 +436,15 @@ interface HighchartsAxisBreak {
 
 interface HighchartsAxisOptions {
     /**
+     * Polar charts only.
+     * Whether the grid lines should draw as a polygon with straight lines
+     * between categories, or as circles. Can be either circle or polygon.
+     *
+     * @default null
+     * @since 2.0
+     */
+    gridLineInterpolation?: string;
+    /**
      * Whether to allow decimals in this axis' ticks. When counting integers,
      * like persons or hits on a web page, decimals must be avoided in the axis
      * tick labels.
@@ -4797,6 +4806,7 @@ interface HighchartsPlotOptions {
     column?: HighchartsColumnChart;
     columnrange?: HighchartsColumnRangeChart;
     errorbar?: HighchartsErrorBarChart;
+    filledgauge?: HighchartsGaugeChart;
     funnel?: HighchartsFunnelChart;
     gauge?: HighchartsGaugeChart;
     heatmap?: HighchartsHeatMapChart;
@@ -5754,6 +5764,9 @@ interface HighchartsChartObject {
      * @param {boolean | HighchartsAnimation} animation Defaults to true. When true, the resize will be animated with default animation options. The animation can also be a configuration object with properties duration and easing.
      */
     setSize(width: number, height: number, animation?: boolean | HighchartsAnimation): void;
+    chartWidth?: number;
+    chartHeight?: number;
+    hasUserSize?: boolean;
     /**
      * Set a new title or subtitle for the chart
      * @param {HighchartsTitleOptions} title A configuration object for the new title as defined at #title.
