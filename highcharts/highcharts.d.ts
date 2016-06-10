@@ -5739,6 +5739,10 @@ interface HighchartsChartObject {
      */
     hideLoading(): void;
     /**
+     * Specifying that the legend is dirty and should be redrawn.
+     */
+    isDirtyLegend: boolean;
+    /**
      * The options structure for the chart.
      * @since 1.2.0
      */
@@ -5792,6 +5796,10 @@ interface HighchartsChartObject {
      * @since 2.0.5
      */
     showLoading(str?: string): void;
+    /**
+     * The tooltip object
+     */
+    tooltip: any;
     /**
      * This method is deprecated as of 2.0.1. Updating the chart position after a move operation is no longer necessary.
      * @since 1.2.5
