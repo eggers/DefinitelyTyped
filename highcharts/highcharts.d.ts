@@ -529,6 +529,7 @@ interface HighchartsAxisOptions {
      * @since 1.2
      */
     gridLineDashStyle?: string;
+    gridLineInterpolation?: string;
     /**
      * The width of the grid lines extending the ticks across the plot area.
      * @default 0
