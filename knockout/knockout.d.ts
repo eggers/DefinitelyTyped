@@ -4,6 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 
+/// <reference path="../q/Q.d.ts"/>
+
 interface KnockoutSubscribableFunctions<T> {
     [key: string]: KnockoutBindingHandler;
 
@@ -82,6 +84,11 @@ interface KnockoutComputed<T> extends KnockoutObservable<T>, KnockoutComputedFun
 	isActive(): boolean;
 	getDependenciesCount(): number;
     extend(requestedExtenders: { [key: string]: any; }): KnockoutComputed<T>;
+}
+
+interface KnockoutComputedPromise<T> extends KnockoutComputed<Q.Promise<T>> {
+    extend(requestedExtenders: { async: any, [key: string]: any; }): KnockoutComputed<T>;
+    extend(requestedExtenders: { [key: string]: any; }): KnockoutComputedPromise<T>;
 }
 
 interface KnockoutObservableArrayStatic {
@@ -411,6 +418,7 @@ interface KnockoutStatic {
     observable: KnockoutObservableStatic;
 
 	computed: KnockoutComputedStatic;
+	pureComputed<T>(evaluatorFunction: () => Q.Promise<T>, context?: any): KnockoutComputedPromise<T>;
 	pureComputed<T>(evaluatorFunction: () => T, context?: any): KnockoutComputed<T>;
 	pureComputed<T>(options: KnockoutComputedDefine<T>, context?: any): KnockoutComputed<T>;
 
