@@ -62,6 +62,7 @@ interface Select2Options {
     formatLoadMore?: (pageNumber: number) => string;
     createSearchChoice?: (term: string, data: any) => any;
     initSelection?: (element: JQuery, callback: (data: any) => void ) => void;
+    insertTag?: (data: IdTextPair[], tag: IdTextPair) => void;
     tokenizer?: (input: string, selection: any[], selectCallback: () => void , options: Select2Options) => string;
     tokenSeparators?: string[];
     query?: (options: Select2QueryOptions) => void;
