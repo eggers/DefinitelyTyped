@@ -35,6 +35,7 @@ interface Select2AjaxOptions {
 interface IdTextPair {
     id: any;
     text: string;
+    children?: IdTextPair[];
 }
 
 interface Select2Options {
@@ -50,7 +51,7 @@ interface Select2Options {
     closeOnSelect?: boolean;
     openOnEnter?: boolean;
     id?: (object: any) => string;
-    matcher?: (term: string, text: string, option: any) => boolean;
+    matcher?: (query: Select2QueryOptions, data: IdTextPair) => boolean;
     formatSelection?: (object: any, container: JQuery, escapeMarkup:(markup: string) => string) => string;
     formatResult?: (object: any, container: JQuery, query: any, escapeMarkup: (markup: string) => string) => string;
     formatResultCssClass?: (object: any) => string;
