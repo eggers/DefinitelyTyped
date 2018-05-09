@@ -3,8 +3,8 @@
 // Definitions by: Pat Sissons <https://github.com/patsissons>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-export as namespace deparam;
-
-export = deparam;
+declare module "deparam" {
+    export = deparam;
+}
 
 declare function deparam(params: string, coerce?: boolean): any;
